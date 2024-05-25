@@ -6,7 +6,8 @@ const Header = () => {
   return (
     <header className="header">
       <nav>
-        <Link to="/">User List</Link>
+        <Link to="/">User Management System
+</Link>
       </nav>
     </header>
   );
