@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# User Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a User Management System built with React and Ant Design. It allows users to manage a list of users, including adding, editing, and deleting users. The application fetches user data from a mock API and provides a user-friendly interface for interacting with this data.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User List View**: Displays a list of users with pagination and filtering options.
+- **Add User**: Allows the addition of a new user with validation for the input fields.
+- **Edit User**: Enables editing the details of an existing user.
+- **Delete User**: Supports deleting a user from the list.
+- **Detail View**: Provides a detailed view of a user when a user row is clicked.
+- **Loading State**: Shows a loading spinner while fetching data from the API.
+- **Notification System**: Provides success and error notifications for user actions (add, edit, delete).
+- **Responsive Design**: The application is responsive, ensuring optimal viewing and interaction experience across various devices.
 
-### `npm start`
+## Additional Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Filtering**: Users can filter the list by name, city, country, or email.
+- **Sorting**: Users can sort the list by created date in ascending or descending order by clicking on the column header.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the repository:
+`git clone https://github.com/logithvikram/View_ReactJS-Exercise.git`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navigate to the project directory:
+`cd View_ReactJS-Exercise`
 
-### `npm run build`
+3. Install dependencies:
+`npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. `npm start`
+This command runs the app in the development mode. 
+Open `http://localhost:3000` to view it in your browser.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Component Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### UserList Component
 
-### `npm run eject`
+The UserList component is the main view of the application. It fetches users from the API and displays them in a table with pagination and filtering options.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### AddUser Component
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The AddUser component provides a modal form for adding a new user. It includes validation for the input fields.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### EditUser Component
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The EditUser component provides a modal form for editing an existing user's details. It includes validation for the input fields.
 
-## Learn More
+### UserDetailPage Component
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The UserDetailPage component displays detailed information about a user. It uses the useParams hook from react-router-dom to get the user ID from the URL and find the corresponding user from the list. It shows details such as the user's name, avatar, city, country, pincode, street, state, phone, and email.
