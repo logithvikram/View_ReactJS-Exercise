@@ -50,3 +50,52 @@ The EditUser component provides a modal form for editing an existing user's deta
 ### UserDetailPage Component
 
 The UserDetailPage component displays detailed information about a user. It uses the useParams hook from react-router-dom to get the user ID from the URL and find the corresponding user from the list. It shows details such as the user's name, avatar, city, country, pincode, street, state, phone, and email.
+
+
++----------------------------------+
+|          User Management         |
+|              System              |
++----------------------------------+
+              |
+              |
+              v
++----------------------------------+
+|           User Interface         |
+|            Components            |
+|                                  |
+|  +---------------------------+   |
+|  |       User List View      |   |
+|  |       (Table + Filters)   |   |
+|  |                           |   |
+|  +---------------------------+   |
+|  |       Add User Form       |   |
+|  |      (Modal Component)    |   |
+|  |                           |   |
+|  +---------------------------+   |
+|  |       Edit User Form      |   |
+|  |      (Modal Component)    |   |
+|  |                           |   |
+|  +---------------------------+   |
+|  |      User Detail View     |   |
+|  |    (Detail Page Component) |   |
+|  |                           |   |
+|  +---------------------------+   |
++----------------------------------+
+              |
+              | User Actions (CRUD)
+              v
++----------------------------------+
+|            API Service           |
+|          (Mock API/REST)         |
+|                                  |
+|  +---------------------------+   |
+|  |      Fetch User Data       |   |
+|  |                           |   |
+|  |      Add User Data        |   |
+|  |                           |   |
+|  |      Update User Data     |   |
+|  |                           |   |
+|  |      Delete User Data     |   |
+|  +---------------------------+   |
++----------------------------------+
+
