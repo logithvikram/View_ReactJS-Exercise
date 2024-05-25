@@ -11,6 +11,12 @@ This project is a User Management System built with React and Ant Design. It all
 - **Detail View**: Provides a detailed view of a user when a user row is clicked.
 - **Loading State**: Shows a loading spinner while fetching data from the API.
 - **Notification System**: Provides success and error notifications for user actions (add, edit, delete).
+- - **Responsive Design**: The application is responsive, ensuring optimal viewing and interaction experience across various devices.
+
+## Additional Features
+
+- **Filtering**: Users can filter the list by name, city, country, or email.
+- **Sorting**: Users can sort the list by created date in ascending or descending order by clicking on the column header.
 
 ## Installation
 
@@ -23,7 +29,7 @@ This project is a User Management System built with React and Ant Design. It all
 3. Install dependencies:
 `npm install`
 
-This command runs the app in the development mode. Open [http://localhost:3000] to view it in your browser.
+This command runs the app in the development mode. Open `http://localhost:3000` to view it in your browser.
 
 ## Component Usage
 
