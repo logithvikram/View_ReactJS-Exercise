@@ -29,7 +29,9 @@ This project is a User Management System built with React and Ant Design. It all
 3. Install dependencies:
 `npm install`
 
-This command runs the app in the development mode. Open `http://localhost:3000` to view it in your browser.
+4. `npm start`
+This command runs the app in the development mode. 
+Open `http://localhost:3000` to view it in your browser.
 
 ## Component Usage
 
