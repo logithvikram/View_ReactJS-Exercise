@@ -20,26 +20,26 @@ const EditUser = ({ visible, onEdit, onCancel, user }) => {
     }
   }, [user, form]);
 
-  const validateUsername = (rule, value) => {
-    const usernameRegex = /^[a-zA-Z]{8,15}$/;
+  const validateUsername = async ( value) => {
+    const usernameRegex = /^[a-zA-Z\s]{8,15}$/;
     if (value && !usernameRegex.test(value)) {
-      return Promise.reject('Username must be 8-15 characters long and alphanumeric.');
+      return Promise.reject(new Error('Username must be 8-15 characters long and alphanumeric.'));
     }
     return Promise.resolve();
   };
 
-  const validateImageUrl = (rule, value) => {
+  const validateImageUrl = async ( value) => {
     const urlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|svg))$/i;
     if (value && !urlRegex.test(value)) {
-      return Promise.reject('Please enter a valid image URL with a proper extension (png, jpg, jpeg, gif, bmp, svg).');
+      return Promise.reject(new Error('Please enter a valid image URL with a proper extension (png, jpg, jpeg, gif, bmp, svg).'));
     }
     return Promise.resolve();
   };
 
-  const validatePhoneNumber = (rule, value) => {
+  const validatePhoneNumber = async ( value) => {
     const phoneRegex = /^[0-9]{10,15}$/;
     if (value && !phoneRegex.test(value)) {
-      return Promise.reject('Phone number must be 10-15 digits long.');
+      return Promise.reject(new Error('Phone number must be 10-15 digits long.'));
     }
     return Promise.resolve();
   };
@@ -51,16 +51,14 @@ const EditUser = ({ visible, onEdit, onCancel, user }) => {
       okText="Save"
       cancelText="Cancel"
       onCancel={onCancel}
-      onOk={() => {
-        form
-          .validateFields()
-          .then(values => {
-            form.resetFields();
-            onEdit(values);
-          })
-          .catch(info => {
-            console.log('Validate Failed:', info);
-          });
+      onOk={async () => {
+        try {
+          const values = await form.validateFields();
+          form.resetFields();
+          onEdit(values);
+        } catch (info) {
+          console.log('Validate Failed:', info);
+        }
       }}
     >
       <Form
