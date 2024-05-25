@@ -1,0 +1,22 @@
+.user-list-container {
+    padding: 16px;
+  }
+  
+  .user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
+    .user-list-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .ant-table-wrapper .ant-spin-nested-loading {
+      overflow-x: auto;
+    }
+  }
+  
