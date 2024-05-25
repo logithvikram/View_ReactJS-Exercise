@@ -11,7 +11,7 @@ This project is a User Management System built with React and Ant Design. It all
 - **Detail View**: Provides a detailed view of a user when a user row is clicked.
 - **Loading State**: Shows a loading spinner while fetching data from the API.
 - **Notification System**: Provides success and error notifications for user actions (add, edit, delete).
-- - **Responsive Design**: The application is responsive, ensuring optimal viewing and interaction experience across various devices.
+- **Responsive Design**: The application is responsive, ensuring optimal viewing and interaction experience across various devices.
 
 ## Additional Features
 
