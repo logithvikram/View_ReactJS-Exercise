@@ -20,7 +20,7 @@ const EditUser = ({ visible, onEdit, onCancel, user }) => {
     }
   }, [user, form]);
 
-  const validateUsername = async ( value) => {
+  const validateUsername = async (_,value) => {
     const usernameRegex = /^[a-zA-Z\s]{8,15}$/;
     if (value && !usernameRegex.test(value)) {
       return Promise.reject(new Error('Username must be 8-15 characters long and alphanumeric.'));
@@ -28,7 +28,7 @@ const EditUser = ({ visible, onEdit, onCancel, user }) => {
     return Promise.resolve();
   };
 
-  const validateImageUrl = async ( value) => {
+  const validateImageUrl = async ( _,value) => {
     const urlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|svg))$/i;
     if (value && !urlRegex.test(value)) {
       return Promise.reject(new Error('Please enter a valid image URL with a proper extension (png, jpg, jpeg, gif, bmp, svg).'));
@@ -36,7 +36,7 @@ const EditUser = ({ visible, onEdit, onCancel, user }) => {
     return Promise.resolve();
   };
 
-  const validatePhoneNumber = async ( value) => {
+  const validatePhoneNumber = async (_, value) => {
     const phoneRegex = /^[0-9]{10,15}$/;
     if (value && !phoneRegex.test(value)) {
       return Promise.reject(new Error('Phone number must be 10-15 digits long.'));

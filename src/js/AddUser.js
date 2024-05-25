@@ -25,7 +25,7 @@ const AddUser = ({ visible, onCreate, onCancel }) => {
     return Promise.resolve();
   };
 
-  const validatePhoneNumber = async (value) => {
+  const validatePhoneNumber = async (_,value) => {
     const phoneRegex = /^[0-9]{10,15}$/;
     if (!value) {
       return Promise.reject(new Error('Please input the phone number!'));
