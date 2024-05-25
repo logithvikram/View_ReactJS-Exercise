@@ -61,7 +61,7 @@ const AddUser = ({ visible, onCreate, onCancel }) => {
           name="name"
           label="Name"
           rules={[
-            { validator: validateUsername },
+            { required: true,validator: validateUsername },
           ]}
         >
           <Input />
@@ -70,7 +70,7 @@ const AddUser = ({ visible, onCreate, onCancel }) => {
           name="avatar"
           label="Image URL"
           rules={[
-            { validator: validateImageUrl },
+            { required: true,validator: validateImageUrl },
           ]}
         >
           <Input />
@@ -117,7 +117,7 @@ const AddUser = ({ visible, onCreate, onCancel }) => {
           name="phone"
           label="Phone Number"
           rules={[
-            { validator: validatePhoneNumber },
+            { required: true,validator: validatePhoneNumber },
           ]}
         >
           <Input />

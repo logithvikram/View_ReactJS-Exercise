@@ -28,7 +28,7 @@ const EditUser = ({ visible, onEdit, onCancel, user }) => {
     return Promise.resolve();
   };
 
-  const validateImageUrl = async ( _,value) => {
+  const validateImageUrl = async (_,value) => {
     const urlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|svg))$/i;
     if (value && !urlRegex.test(value)) {
       return Promise.reject(new Error('Please enter a valid image URL with a proper extension (png, jpg, jpeg, gif, bmp, svg).'));
