@@ -5,26 +5,32 @@ import axios from 'axios';
 const AddUser = ({ visible, onCreate, onCancel }) => {
   const [form] = Form.useForm();
 
-  const validateUsername = ( value) => {
-    const usernameRegex = /^[a-zA-Z]{8,15}$/;
-    if (value && !usernameRegex.test(value)) {
-      return Promise.reject('Username must be 8-15 characters long and alphanumeric.');
+  const validateUsername = async (_, value) => {
+    const usernameRegex = /^[a-zA-Z\s]{8,15}$/;
+    if (!value) {
+      return Promise.reject(new Error('Please input the name!'));
+    } else if (!usernameRegex.test(value)) {
+      return Promise.reject(new Error('Username must be 8-15 characters long and alphanumeric.'));
     }
     return Promise.resolve();
   };
 
-  const validateImageUrl = ( value) => {
+  const validateImageUrl = async (_, value) => {
     const urlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|svg))$/i;
-    if (value && !urlRegex.test(value)) {
-      return Promise.reject('Please enter a valid image URL with a proper extension (png, jpg, jpeg, gif, bmp, svg).');
+    if (!value) {
+      return Promise.reject(new Error('Please input the image URL!'));
+    } else if (!urlRegex.test(value)) {
+      return Promise.reject(new Error('Please enter a valid image URL with a proper extension (png, jpg, jpeg, gif, bmp, svg).'));
     }
     return Promise.resolve();
   };
 
-  const validatePhoneNumber = ( value) => {
+  const validatePhoneNumber = async (_, value) => {
     const phoneRegex = /^[0-9]{10,15}$/;
-    if (value && !phoneRegex.test(value)) {
-      return Promise.reject('Phone number must be 10-15 digits long.');
+    if (!value) {
+      return Promise.reject(new Error('Please input the phone number!'));
+    } else if (!phoneRegex.test(value)) {
+      return Promise.reject(new Error('Phone number must be 10-15 digits long.'));
     }
     return Promise.resolve();
   };
@@ -36,39 +42,34 @@ const AddUser = ({ visible, onCreate, onCancel }) => {
       okText="Create"
       cancelText="Cancel"
       onCancel={onCancel}
-      onOk={() => {
-        form
-          .validateFields()
-          .then(values => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch(info => {
-            console.log('Validate Failed:', info);
-          });
+      onOk={async () => {
+        try {
+          const values = await form.validateFields();
+          form.resetFields();
+          onCreate(values);
+        } catch (info) {
+          console.log('Validate Failed:', info);
+        }
       }}
     >
       <Form
         form={form}
         layout="vertical"
         name="form_in_modal"
-      >     
-        <Form.Item
-        name="name"
-        label="Name"
-        rules={[
-          { required: true, message: 'Please input the name!' },
-          { validator: validateUsername },
-        ]}
       >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          name="name"
+          label="Name"
+          rules={[
+            { validator: validateUsername },
+          ]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item
           name="avatar"
           label="Image URL"
           rules={[
-            { required: true, message: 'Please input the image URL!' },
-            { type: 'url', message: 'Please enter a valid URL!' },
             { validator: validateImageUrl },
           ]}
         >
@@ -99,7 +100,7 @@ const AddUser = ({ visible, onCreate, onCancel }) => {
           <Input />
         </Form.Item>
         <Form.Item
-          name="Street"
+          name="street"
           label="Street"
           rules={[{ required: true, message: 'Please input the street!' }]}
         >
@@ -116,7 +117,6 @@ const AddUser = ({ visible, onCreate, onCancel }) => {
           name="phone"
           label="Phone Number"
           rules={[
-            { required: true, message: 'Please input the phone number!' },
             { validator: validatePhoneNumber },
           ]}
         >
