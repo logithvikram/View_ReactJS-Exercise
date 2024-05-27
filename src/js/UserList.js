@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import { Table, Spin, notification, Button, Space, Input } from 'antd';
+import { Table, Spin, notification, Button, Space, Input,Modal } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import AddUserButton from './AddUser';
 import EditUser from './EditUser';
 import '../css/styles.css';
 import { FieldNumberOutlined  ,FilterOutlined } from '@ant-design/icons';
+const { confirm } = Modal;
+
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -45,20 +47,32 @@ const UserList = () => {
 
   const handleDelete = (id, e) => {
     e.stopPropagation();
-    axios.delete(`https://623c2a6d2e056d1037fa9e3f.mockapi.io/user/${id}`)
-      .then(() => {
-        notification.success({
-          message: 'User Deleted',
-          description: 'The user has been successfully deleted.',
-        });
-        fetchUsers();
-      })
-      .catch(error => {
-        notification.error({
-          message: 'Error Deleting User',
-          description: error.message,
-        });
-      });
+    confirm({
+      title: 'Are you sure you want to delete this user?',
+      content: 'This action cannot be undone.',
+      okText: 'Yes',
+      okType: 'danger',
+      cancelText: 'No',
+      onOk() {
+        axios.delete(`https://623c2a6d2e056d1037fa9e3f.mockapi.io/user/${id}`)
+          .then(() => {
+            notification.success({
+              message: 'User Deleted',
+              description: 'The user has been successfully deleted.',
+            });
+            fetchUsers();
+          })
+          .catch(error => {
+            notification.error({
+              message: 'Error Deleting User',
+              description: error.message,
+            });
+          });
+      },
+      onCancel() {
+        console.log('Delete action cancelled');
+      },
+    });
   };
 
   const handleEdit = (user, e) => {
