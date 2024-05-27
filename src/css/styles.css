@@ -19,4 +19,24 @@
       overflow-x: auto;
     }
   }
+
+
+.user-detail-container {
+  padding: 20px;
+}
+
+.user-detail-container.mobile .user-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-detail .ant-descriptions {
+  width: 100%;
+}
+
+.user-detail .ant-avatar {
+  margin-bottom: 16px;
+}
+
   
