@@ -7,7 +7,7 @@ This project is a User Management System built with React and Ant Design. It all
 - **User List View**: Displays a list of users with pagination and filtering options.
 - **Add User**: Allows the addition of a new user with validation for the input fields.
 - **Edit User**: Enables editing the details of an existing user.
-- **Delete User**: Supports deleting a user from the list.
+- **Delete User**: Supports deleting a user from the list with a confirmation pop-up to prevent accidental deletions.
 - **Detail View**: Provides a detailed view of a user when a user row is clicked.
 - **Loading State**: Shows a loading spinner while fetching data from the API.
 - **Notification System**: Provides success and error notifications for user actions (add, edit, delete).
