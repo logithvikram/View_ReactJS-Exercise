@@ -52,11 +52,11 @@ The EditUser component provides a modal form for editing an existing user's deta
 The UserDetailPage component displays detailed information about a user. It uses the useParams hook from react-router-dom to get the user ID from the URL and find the corresponding user from the list. It shows details such as the user's name, avatar, city, country, pincode, street, state, phone, and email.
 
 ## MVVM (Model-View-ViewModel) architecture. 
-1. Model: This is represented by the userService module which interacts with the API to fetch, create, update, and delete user data. It encapsulates the data logic and communicates with the backend.
+1.Model: This is represented by the userService module which interacts with the API to fetch, create, update, and delete user data. It encapsulates the data logic and communicates with the backend.
 
-2 .View: This is represented by the React components, such as UserList, UserDetail, and Header. These components are responsible for rendering the UI and presenting data to the user. They also handle user interactions (like clicks and form submissions).
+2.View: This is represented by the React components, such as UserList, UserDetail, and Header. These components are responsible for rendering the UI and presenting data to the user. They also handle user interactions.
 
-3. ViewModel: The useUserDetailViewModel custom hook serves as the ViewModel. It manages the data required by the UserDetail component, fetching user data from the service and providing state management (loading and error states).
+3.ViewModel: The useUserDetailViewModel custom hook serves as the ViewModel. It manages the data required by the UserDetail component, fetching user data from the service and providing state management.
 
 # Block Diagram
 
